@@ -175,33 +175,50 @@ import React from 'react';
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+                //boxes(unified state)
+
+
 //components////////////////////////////////////////
-const arrayBoxes = [
-    {
-        id: 1,
-        on: true
-    },   
-    {
-        id: 2,
-        on: false
-    },   
-    {
-        id: 3,
-        on: true
-    },   
-    {
-        id: 4,
-        on: true
-    },   
-    {
-        id: 5,
-        on: false
-    },   
-    {
-        id: 6,
-        on: false
-    },   
-]
+// const arrayBoxes = [
+//     {
+//         id: 1,
+//         on: true
+//     },   
+//     {
+//         id: 2,
+//         on: false
+//     },   
+//     {
+//         id: 3,
+//         on: true
+//     },   
+//     {
+//         id: 4,
+//         on: true
+//     },   
+//     {
+//         id: 5,
+//         on: false
+//     },   
+//     {
+//         id: 6,
+//         on: false
+//     },   
+// ]
+
+
+// function Box(props) {
+//     const styles = {
+//         backgroundColor: props.on ? '#222222' : 'transparent',
+//     };
+
+//     return (
+//         <div 
+//         className='box' onClick={()=> props.toggle(props.id)} style={styles}></div>
+//     )
+// };
+
+
 
 
 
@@ -212,18 +229,110 @@ const arrayBoxes = [
 
 
 
-export default function App(props) {
+// export default function App(props) {
 
-    const [boxes, setBoxes] = React.useState(arrayBoxes);
-    const styles = {
-        backgroundColor: props.darkMode ? '#222222' : '#cccccc',
-    }
-    const boxesHtml = boxes.map((box)=> <div style={styles} key={box.id} className='box'></div>)
+//     const [boxes, setBoxes] = React.useState(arrayBoxes);
     
-    return (
-        <main>
-            <h1>Boxes will go here</h1>
-            {boxesHtml}
-        </main>
-    )
-}
+//     function toggle(id) { 
+//         setBoxes((prevState)=> {
+//             return prevState.map((element)=> element.id === id ? {...element, on: !element.on} : element);
+//         }) 
+//     }
+//     const boxesHtml = boxes.map((item)=> {
+//         return <Box toggle={toggle} key={item.id} id={item.id}  on={item.on}/>
+//     });
+    
+    
+//     return (
+//         <main>
+//             <h1>Boxes will go here</h1>
+//             {boxesHtml}
+//         </main>
+//     )
+// }
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                //boxes(local state)
+
+
+//components////////////////////////////////////////
+// const arrayBoxes = [
+//     {
+//         id: 1,
+//         on: true
+//     },   
+//     {
+//         id: 2,
+//         on: false
+//     },   
+//     {
+//         id: 3,
+//         on: true
+//     },   
+//     {
+//         id: 4,
+//         on: true
+//     },   
+//     {
+//         id: 5,
+//         on: false
+//     },   
+//     {
+//         id: 6,
+//         on: false
+//     },   
+// ]
+
+
+// function Box(props) {
+    
+//     const [on, setOn] = React.useState(props.on);
+    
+//     const styles = {
+//         backgroundColor: on ? '#222222' : 'transparent',
+//     };
+
+//     function flickIt() {
+//         setOn((prevState)=> !prevState);
+//     }
+
+//     return (
+//         <div 
+//         className='box' onClick={flickIt} style={styles}></div>
+//     )
+// };
+
+
+
+
+
+///////////////////////////////////////////////////
+
+
+
+
+
+
+// export default function App(props) {
+
+//     const [boxes, setBoxes] = React.useState(arrayBoxes);
+    
+//     const boxesHtml = boxes.map((item)=> {
+//         return <Box key={item.id} on={item.on}/>
+//     });
+    
+    
+//     return (
+//         <main>
+//             <h1>Boxes will go here</h1>
+//             {boxesHtml}
+//         </main>
+//     )
+// }
