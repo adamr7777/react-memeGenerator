@@ -11,11 +11,13 @@ export default function Meme() {
 
     const [allMemes, setAllMemes] = React.useState([]);
 
-   React.useEffect(()=> {
-    fetch('https://api.imgflip.com/get_memes')
-        .then((res)=> res.json())
-        .then((data)=> setAllMemes(data))
-   }, []);
+    React.useEffect(()=> {
+        (async function(){
+            const response = await fetch('https://api.imgflip.com/get_memes');
+            const data = await response.json();
+            setAllMemes(data);
+        })();
+    }, []);
 
     function getImg() {
         const memesArray = allMemes.data.memes
